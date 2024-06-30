@@ -1,7 +1,6 @@
 use crate::errors::TmError;
-use crate::util::{ ComputationStatus, ComputationClock, Symbol, State, Transition };
+use crate::util::{ ComputationStatus, ComputationClock, Symbol };
 use super::machine::TuringMachine;
-
 
 pub struct Computation<'a> {
     machine: &'a TuringMachine,
@@ -10,6 +9,15 @@ pub struct Computation<'a> {
     tape: Vec<usize>,
     status: ComputationStatus,
     clock: ComputationClock
+}
+
+impl Computation<'_> {
+    pub fn view_machine(&self) -> &TuringMachine { &self.machine }
+    pub fn view_current_state(&self) -> usize { self.current_state }
+    pub fn view_head_position(&self) -> usize { self.head_position }
+    pub fn view_tape(&self) -> &Vec<usize> { &self.tape }
+    pub fn view_status(&self) -> &ComputationStatus { &self.status }
+    pub fn view_clock(&self) -> &ComputationClock { &self.clock }
 }
 
 impl<'a> Computation<'a> {

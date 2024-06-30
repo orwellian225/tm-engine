@@ -77,6 +77,7 @@ impl fmt::Display for Transition {
     }
 }
 
+#[derive(Debug)]
  pub struct ComputationClock {
     pub time: usize,
     pub space: usize,
@@ -84,7 +85,7 @@ impl fmt::Display for Transition {
     pub max_space: Option<usize>,
 }
 
-#[derive(Default, PartialEq, Eq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub enum ComputationStatus {
     #[default]
     Executing,

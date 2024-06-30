@@ -1,17 +1,14 @@
-use std::rc::Rc;
-use std::default::Default;
-
 use crate::{errors::TmError, util::{State, Symbol, Transition}};
 use super::computation::Computation;
 
 pub struct TuringMachine {
-    states: Vec<State>,
-    tape_symbols: Vec<Symbol>,
-    language_symbols: Vec<Symbol>,
-    transitions: Vec<Vec<Transition>>,
-    start_state: usize,
-    accept_state: usize,
-    reject_state: usize
+    pub states: Vec<State>,
+    pub tape_symbols: Vec<Symbol>,
+    pub language_symbols: Vec<Symbol>,
+    pub transitions: Vec<Vec<Transition>>,
+    pub start_state: usize,
+    pub accept_state: usize,
+    pub reject_state: usize
 }
 
 impl TuringMachine {

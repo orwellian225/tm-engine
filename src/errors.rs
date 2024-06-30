@@ -3,7 +3,7 @@ use core::fmt;
 
 #[derive(fmt::Debug)]
 pub struct TmError {
-    message: String
+    pub message: String
 }
 
 impl TmError {
