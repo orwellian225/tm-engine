@@ -1,5 +1,5 @@
 use std::error::Error;
-use core::fmt;
+use std::fmt;
 
 #[derive(fmt::Debug)]
 pub struct TmError {

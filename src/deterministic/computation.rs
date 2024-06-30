@@ -21,10 +21,12 @@ impl Computation<'_> {
 }
 
 impl<'a> Computation<'a> {
+    /// Create a computation from a machine and word
     pub fn start(machine: &'a TuringMachine, word: &String) -> Result<Self, TmError> {
         Self::bounded_start(machine, word, (None, None))
     }
 
+    /// Create a bounded computation from a machine and word
     pub fn bounded_start(machine: &'a TuringMachine, word: &String, limits: (Option<usize>, Option<usize>)) -> Result<Self, TmError> {
         let mut tape = vec![1];
 
@@ -53,6 +55,7 @@ impl<'a> Computation<'a> {
         })
     }
 
+    /// Execute the next transition from the current configuration
     pub fn step(&mut self) {
         match self.status {
             ComputationStatus::Executing => (),
@@ -108,6 +111,7 @@ impl<'a> Computation<'a> {
         }
     }
 
+    /// Run the Computation until it halts
     pub fn run(&mut self) {
         while self.status == ComputationStatus::Executing {
             self.step();
